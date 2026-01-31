@@ -1,42 +1,100 @@
-# Momentum-Apps
-Bundle of external apps tweaked for [Momentum Firmware](https://github.com/Next-Flip/Momentum-Firmware).
+# **ProtoPirate**
 
-> [!IMPORTANT]
-> These apps are already included with all Momentum Firmware releases.
-> This repository serves only as a way to keep them updated and maintained easier.
+### _for Flipper Zero_
 
-### Why?
-Many apps included in Momentum are modified (some lots more than others). This includes:
-- Removing/tweaking icons and/or their usages to **support our Asset Packs system**
-- Removing duplicate keyboard implementations to **use our extended system keyboard**
-- With our system keyboard also **support our CLI command `input keyboard`** to type with PC keyboard
-- Tweak UART/SPI usage to **support our GPIO Pins mapping settings**
-- **Moving location of save files** to a more appropriate location or changing how they are saved
-- **Changing application display names** to fit our naming scheme
-- **Changing how some menus work/look** or adding **new exclusive menus and features**
-- **Improving or extending functionality** and better integrating with the firmware
-- **Updating and fixing apps** that were abandoned by the original developers
+ProtoPirate is an experimental rolling-code analysis toolkit developed by members of **The Pirates' Plunder**.
+The app currently supports decoding for multiple automotive key-fob families (Kia, Ford, Subaru, Suzuki, VW, and more), with the goal of being a drop-in Flipper app (.fap) that is free, open source, and can be used on any Flipper Zero firmware.
 
-### How?
-**Apps made by our team are developed right here, the latest versions will always originate from this repository.**
+## **Supported Protocols**
 
-**For all other apps we use git subtrees to pull updates from the creator's repository / other sources such as [@xMasterX's pack](https://github.com/xMasterX/all-the-plugins), while also keeping our own tweaks and additions.**
+Decoders:
 
-We didn't want to have fork repos for each single app since it would get out of hand very quick. Instead, we opted for subtrees.
+- KIA V0
+- KIA V1
+- KIA V2
+- KIA V3 / V4
+- KIA V5
+- KIA V6
+- Fiat V0
+- Ford V0
+- Scher-Khan
+- StarLine
+- Subaru
+- Suzuki
+- Volkswagen (VW)
 
-Subtrees work in a very peculiar way: they pull and compare commit history from a remote repo and apply it to a subdirectory of this repo.
-That's why the commit history for this repo is so huge, it contains all the commits for all the apps, plus our edits.
+Encoders:
 
-To make updating more manageable, we have added some scripts on top of subtrees (requires [Python](https://python.org) installed to use):
-- add a new app with `.subtrees/add.py <path> <repo url> <branch> [subdir]`, this will pull the history and create `path/.gitsubtree` to remember the url, branch and subdir
-- run `.subtrees/update.py <path> [path2] [pathN...]` to pull updates for some subtrees
-- or run `.subtrees/update.py` with no arguments to update all subtrees
+- Fiat V0
+- Ford V0
+- KIA V0
+- KIA V1
+- KIA V2
+- KIA V3 / V4
+- StarLine
+- Subaru
+- Suzuki
+- More Coming Soon
 
-Most apps have a remote subtree URL for both the original repository, and for any forks / other sources such as [@xMasterX's pack](https://github.com/xMasterX/all-the-plugins).
-This process is assisted by `.subtrees/add.py`, if the specified subtree path already exists, it will:
-- remove the previous subtree with a commit
-- add the subtree from the new remote
-- restore the previous subtree and merge the remotes
-After this, you will just need to resolve the conflicts (content differences between remotes) manually to keep the best of both, and commit.
-If you're an app developer wanting to add your app, or a third party who wants to include something they find useful, you don't need to bother with this process.
-We will do it for you, just add from a single remote URL, or simply make an issue requesting an app to be added!
+## **Features**
+
+### 📡 Protocol Receiver
+
+Real-time signal capture and decoding with animated radar display. Supports frequency hopping.
+
+### 📂 Sub Decode
+
+Load and analyze existing `.sub` files from your SD card. Browse `/ext/subghz/` to decode previously captured signals.
+
+### ⏱️ Timing Tuner
+
+Tool for protocol developers to compare real fob signal timing against protocol definitions.
+
+- **Protocol Definition**: Expected short/long pulse durations and tolerance
+- **Received Signal**: Measured timing from real fob (avg, min, max, sample count)
+- **Analysis**: Difference from expected, jitter measurements
+- **Conclusion**: Whether timing matches or needs adjustment with specific recommendations
+
+## **Credits**
+
+The following contributors are recognized for helping us keep open sourced projects and the freeware community alive.
+
+### **App Development**
+
+- RocketGod
+- MMX
+- Leeroy
+- Skorp - Thanks, I sneaked a lot from Weather App!
+- Vadim's Radio Driver
+
+### **Protocol Magic**
+
+- L0rdDiakon
+- YougZ
+- RocketGod
+- MMX
+- DoobTheGoober
+- Skorp
+- Slackware
+- Trikk
+- Wootini
+- Li0ard
+- Leeroy
+
+### **Reverse Engineering Support**
+
+- DoobTheGoober
+- MMX
+- NeedNotApply
+- RocketGod
+- Slackware
+- Trikk
+- Li0ard
+
+## **Community & Support**
+
+Join **The Pirates' Plunder** on Discord for development updates, testing, protocol research, community support, and a bunch of badasses doing fun shit:
+
+➡️ **[https://discord.gg/thepirates](https://discord.gg/thepirates)**
+
+<img width="1500" height="1000" alt="rocketgod_logo_transparent" src="https://github.com/user-attachments/assets/ad15b106-152c-4a60-a9e2-4d40dfa8f3c6" />
