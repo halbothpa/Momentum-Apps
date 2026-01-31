@@ -1,0 +1,8 @@
+App(
+    appid="subghz_playlist_stub",
+    name="SubGHz Playlist Stub",
+    apptype=FlipperAppType.PLUGIN,
+    entry_point=None,
+    targets=["f7"],
+    sources=["playlist_file.c"],
+)
